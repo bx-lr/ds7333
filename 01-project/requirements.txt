@@ -1,0 +1,3 @@
+Your case study is to build a linear regression model using L1 or L2 regularization (or both) the task to predict the Critical Temperature as closely as possible. In addition, include in your write-up which variable carries the most importance.
+
+When you save your assignment, the file name should be "First Name_Last Name_Assignment Name."

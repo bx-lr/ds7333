@@ -31,13 +31,13 @@ def retrieve_and_scale_data(indir):
     X = all_data.drop(['critical_temp'], axis=1)
     scale = StandardScaler()
     X_scaled = pd.DataFrame(scale.fit_transform(X), columns=X.columns)
-    return X_scaled,y
+    return X_scaled, y
 
 
 def main(args):
-    X,y = retrieve_and_scale_data(args.indir)
-    lassocv = LassoCV(alphas = None, cv = 5, max_iter = 100000)
-    lassocv.fit(X,y)
+    X, y = retrieve_and_scale_data(args.indir)
+    lassocv = LassoCV(alphas=None, cv=5, max_iter=100000)
+    lassocv.fit(X, y)
 
     model = Lasso()
     model.set_params(alpha=lassocv.alpha_)
@@ -47,6 +47,7 @@ def main(args):
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
-    ap.add_argument('-i', '--indir', required=True, help='Input data directory')
+    ap.add_argument('-i', '--indir', required=True,
+                    help='Input data directory')
     args = ap.parse_args()
     main(args)

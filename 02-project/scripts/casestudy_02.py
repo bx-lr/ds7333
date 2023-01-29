@@ -162,8 +162,8 @@ def main(input):
 
 
 if __name__ == '__main__':
+    warnings.filterwarnings('ignore')
     ap = argparse.ArgumentParser()
     ap.add_argument('-i', '--input', required=True, help='input csv location')
     args = ap.parse_args()
-    warnings.filterwarnings('ignore')
     main(args.input)
